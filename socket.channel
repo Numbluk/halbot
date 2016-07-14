@@ -1,0 +1,135 @@
+=> [32m#<Faye::WebSocket::API::MessageEvent:0x000000012aee68[0m
+ @bubbles[32m=[0m[1;36mfalse[0m,
+ @cancelable[32m=[0m[1;36mfalse[0m,
+ @current_target[32m=[0m
+  [32m#<Faye::WebSocket::Client:0x000000019a0460[0m
+   @buffered_amount[32m=[0m[1;34m0[0m,
+   @close_params[32m=[0m[1;36mnil[0m,
+   @driver[32m=[0m
+    [32m#<WebSocket::Driver::Client:0x000000018bb6a8[0m
+     @accept[32m=[0m[31m[1;31m"[0m[31m9iV2KhnZV+hulvJphdbBv0t+LRY=[1;31m"[0m[31m[0m,
+     @extensions[32m=[0m
+      [32m#<WebSocket::Extensions:0x000000018b43d0[0m @by_name[32m=[0m{}, @in_order[32m=[0m[], @index[32m=[0m{}, @rsv1[32m=[0m[1;36mnil[0m, @rsv2[32m=[0m[1;36mnil[0m, @rsv3[32m=[0m[1;36mnil[0m, @sessions[32m=[0m[][32m>[0m,
+     @frame[32m=[0m[1;36mnil[0m,
+     @headers[32m=[0m{[31m[1;31m"[0m[31mupgrade[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mwebsocket[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mconnection[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mUpgrade[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31msec-websocket-accept[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m9iV2KhnZV+hulvJphdbBv0t+LRY=[1;31m"[0m[31m[0m},
+     @http[32m=[0m
+      [32m#<WebSocket::HTTP::Response:0x000000018a26d0[0m
+       @buffer[32m=[0m[],
+       @code[32m=[0m[1;34m101[0m,
+       @env[32m=[0m{[31m[1;31m"[0m[31mrack.input[1;31m"[0m[31m[0m=>[32m#<StringIO:0x0000000189fde0[0m[32m>[0m},
+       @headers[32m=[0m{[31m[1;31m"[0m[31mupgrade[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mwebsocket[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mconnection[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mUpgrade[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31msec-websocket-accept[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m9iV2KhnZV+hulvJphdbBv0t+LRY=[1;31m"[0m[31m[0m},
+       @stage[32m=[0m[1;34m2[0m[32m>[0m,
+     @key[32m=[0m[31m[1;31m"[0m[31mvHh6FhWhTt8S3+GKyv+wHQ==[1;31m"[0m[31m[0m,
+     @listeners[32m=[0m
+      {[31m[1;31m"[0m[31mopen[1;31m"[0m[31m[0m=>[[32m#<Proc:0x000000018a1820@/home/durendal/.rvm/gems/ruby-2.2.5/gems/faye-websocket-0.10.4/lib/faye/websocket/api.rb:42>[0m],
+       [31m[1;31m"[0m[31mmessage[1;31m"[0m[31m[0m=>
+        [[32m#<Proc:0x000000018a1780@/home/durendal/.rvm/gems/ruby-2.2.5/gems/faye-websocket-0.10.4/lib/faye/websocket/api.rb:43>[0m],
+       [31m[1;31m"[0m[31mclose[1;31m"[0m[31m[0m=>[[32m#<Proc:0x000000018a16b8@/home/durendal/.rvm/gems/ruby-2.2.5/gems/faye-websocket-0.10.4/lib/faye/websocket/api.rb:44>[0m],
+       [31m[1;31m"[0m[31merror[1;31m"[0m[31m[0m=>
+        [[32m#<Proc:0x000000018a1618@/home/durendal/.rvm/gems/ruby-2.2.5/gems/faye-websocket-0.10.4/lib/faye/websocket/api.rb:46>[0m]},
+     @masking[32m=[0m[1;36mtrue[0m,
+     @max_length[32m=[0m[1;34m67108863[0m,
+     @message[32m=[0m[1;36mnil[0m,
+     @options[32m=[0m{[33m:max_length[0m=>[1;36mnil[0m, [33m:protocols[0m=>[1;36mnil[0m, [33m:masking[0m=>[1;36mtrue[0m},
+     @pathname[32m=[0m
+      [31m[1;31m"[0m[31m/websocket/m9l-l_t5ErKEQ5nG2E82ehnxErsWupBVZ8J5HYwrfemZ37NjFGXdrzYHmAnAf2Vn-Cxpp5C_fxkkDwIpHtv9DE3-X2XEik6ZZJe2shEMz8qJ1iLINx45gYT6hkKVa0VYTbPQeg8922QjMC56eafK8g==[1;31m"[0m[31m[0m,
+     @ping_callbacks[32m=[0m{},
+     @protocols[32m=[0m[],
+     @queue[32m=[0m[],
+     @reader[32m=[0m[32m#<WebSocket::Driver::StreamReader:0x000000018b7e18[0m @buffer[32m=[0m[31m[1;31m"[0m[31m[1;31m"[0m[31m[0m, @offset[32m=[0m[1;34m0[0m[32m>[0m,
+     @ready_state[32m=[0m[1;34m1[0m,
+     @require_masking[32m=[0m[1;36mnil[0m,
+     @socket[32m=[0m[32m#<Faye::WebSocket::Client:0x000000019a0460[0m ...[32m>[0m,
+     @stage[32m=[0m[1;34m0[0m,
+     @status[32m=[0m[1;34m101[0m[32m>[0m,
+   @event_buffers[32m=[0m{},
+   @listeners[32m=[0m
+    {[31m[1;31m"[0m[31mopen[1;31m"[0m[31m[0m=>[[32m#<Proc:0x000000018a1050@halbot.rb:14>[0m],
+     [31m[1;31m"[0m[31mmessage[1;31m"[0m[31m[0m=>[[32m#<Proc:0x000000018a0fd8@halbot.rb:19>[0m],
+     [31m[1;31m"[0m[31mclose[1;31m"[0m[31m[0m=>[[32m#<Proc:0x000000018a0f60@halbot.rb:32>[0m]},
+   @onclose[32m=[0m[1;36mnil[0m,
+   @onerror[32m=[0m[1;36mnil[0m,
+   @onmessage[32m=[0m[1;36mnil[0m,
+   @onopen[32m=[0m[1;36mnil[0m,
+   @origin_tls[32m=[0m{},
+   @ping[32m=[0m[1;36mnil[0m,
+   @ping_id[32m=[0m[1;34m0[0m,
+   @ping_timer[32m=[0m[1;36mnil[0m,
+   @proxy[32m=[0m[1;36mnil[0m,
+   @ready_state[32m=[0m[1;34m1[0m,
+   @secure[32m=[0m[1;36mtrue[0m,
+   @socket_tls[32m=[0m{},
+   @stream[32m=[0m
+    [32m#<Faye::WebSocket::Client::Connection::EM_CONNECTION_CLASS:0x000000018a1140[0m
+     @parent[32m=[0m[32m#<Faye::WebSocket::Client:0x000000019a0460[0m ...[32m>[0m,
+     @signature[32m=[0m[1;34m2[0m[32m>[0m,
+   @url[32m=[0m
+    [31m[1;31m"[0m[31mwss://mpmulti-fjjw.slack-msgs.com/websocket/m9l-l_t5ErKEQ5nG2E82ehnxErsWupBVZ8J5HYwrfemZ37NjFGXdrzYHmAnAf2Vn-Cxpp5C_fxkkDwIpHtv9DE3-X2XEik6ZZJe2shEMz8qJ1iLINx45gYT6hkKVa0VYTbPQeg8922QjMC56eafK8g==[1;31m"[0m[31m[0m[32m>[0m,
+ @data[32m=[0m
+  [31m[1;31m"[0m[31m{[1;35m\"[0m[31mtype[1;35m\"[0m[31m:[1;35m\"[0m[31mmessage[1;35m\"[0m[31m,[1;35m\"[0m[31mchannel[1;35m\"[0m[31m:[1;35m\"[0m[31mG1RJ33RST[1;35m\"[0m[31m,[1;35m\"[0m[31muser[1;35m\"[0m[31m:[1;35m\"[0m[31mU11KUJ4KB[1;35m\"[0m[31m,[1;35m\"[0m[31mtext[1;35m\"[0m[31m:[1;35m\"[0m[31mhello[1;35m\"[0m[31m,[1;35m\"[0m[31mts[1;35m\"[0m[31m:[1;35m\"[0m[31m1468481477.000096[1;35m\"[0m[31m,[1;35m\"[0m[31mteam[1;35m\"[0m[31m:[1;35m\"[0m[31mT0YKP5Z9T[1;35m\"[0m[31m}[1;31m"[0m[31m[0m,
+ @event_phase[32m=[0m[1;34m2[0m,
+ @target[32m=[0m
+  [32m#<Faye::WebSocket::Client:0x000000019a0460[0m
+   @buffered_amount[32m=[0m[1;34m0[0m,
+   @close_params[32m=[0m[1;36mnil[0m,
+   @driver[32m=[0m
+    [32m#<WebSocket::Driver::Client:0x000000018bb6a8[0m
+     @accept[32m=[0m[31m[1;31m"[0m[31m9iV2KhnZV+hulvJphdbBv0t+LRY=[1;31m"[0m[31m[0m,
+     @extensions[32m=[0m
+      [32m#<WebSocket::Extensions:0x000000018b43d0[0m @by_name[32m=[0m{}, @in_order[32m=[0m[], @index[32m=[0m{}, @rsv1[32m=[0m[1;36mnil[0m, @rsv2[32m=[0m[1;36mnil[0m, @rsv3[32m=[0m[1;36mnil[0m, @sessions[32m=[0m[][32m>[0m,
+     @frame[32m=[0m[1;36mnil[0m,
+     @headers[32m=[0m{[31m[1;31m"[0m[31mupgrade[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mwebsocket[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mconnection[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mUpgrade[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31msec-websocket-accept[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m9iV2KhnZV+hulvJphdbBv0t+LRY=[1;31m"[0m[31m[0m},
+     @http[32m=[0m
+      [32m#<WebSocket::HTTP::Response:0x000000018a26d0[0m
+       @buffer[32m=[0m[],
+       @code[32m=[0m[1;34m101[0m,
+       @env[32m=[0m{[31m[1;31m"[0m[31mrack.input[1;31m"[0m[31m[0m=>[32m#<StringIO:0x0000000189fde0[0m[32m>[0m},
+       @headers[32m=[0m{[31m[1;31m"[0m[31mupgrade[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mwebsocket[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mconnection[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mUpgrade[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31msec-websocket-accept[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m9iV2KhnZV+hulvJphdbBv0t+LRY=[1;31m"[0m[31m[0m},
+       @stage[32m=[0m[1;34m2[0m[32m>[0m,
+     @key[32m=[0m[31m[1;31m"[0m[31mvHh6FhWhTt8S3+GKyv+wHQ==[1;31m"[0m[31m[0m,
+     @listeners[32m=[0m
+      {[31m[1;31m"[0m[31mopen[1;31m"[0m[31m[0m=>[[32m#<Proc:0x000000018a1820@/home/durendal/.rvm/gems/ruby-2.2.5/gems/faye-websocket-0.10.4/lib/faye/websocket/api.rb:42>[0m],
+       [31m[1;31m"[0m[31mmessage[1;31m"[0m[31m[0m=>
+        [[32m#<Proc:0x000000018a1780@/home/durendal/.rvm/gems/ruby-2.2.5/gems/faye-websocket-0.10.4/lib/faye/websocket/api.rb:43>[0m],
+       [31m[1;31m"[0m[31mclose[1;31m"[0m[31m[0m=>[[32m#<Proc:0x000000018a16b8@/home/durendal/.rvm/gems/ruby-2.2.5/gems/faye-websocket-0.10.4/lib/faye/websocket/api.rb:44>[0m],
+       [31m[1;31m"[0m[31merror[1;31m"[0m[31m[0m=>
+        [[32m#<Proc:0x000000018a1618@/home/durendal/.rvm/gems/ruby-2.2.5/gems/faye-websocket-0.10.4/lib/faye/websocket/api.rb:46>[0m]},
+     @masking[32m=[0m[1;36mtrue[0m,
+     @max_length[32m=[0m[1;34m67108863[0m,
+     @message[32m=[0m[1;36mnil[0m,
+     @options[32m=[0m{[33m:max_length[0m=>[1;36mnil[0m, [33m:protocols[0m=>[1;36mnil[0m, [33m:masking[0m=>[1;36mtrue[0m},
+     @pathname[32m=[0m
+      [31m[1;31m"[0m[31m/websocket/m9l-l_t5ErKEQ5nG2E82ehnxErsWupBVZ8J5HYwrfemZ37NjFGXdrzYHmAnAf2Vn-Cxpp5C_fxkkDwIpHtv9DE3-X2XEik6ZZJe2shEMz8qJ1iLINx45gYT6hkKVa0VYTbPQeg8922QjMC56eafK8g==[1;31m"[0m[31m[0m,
+     @ping_callbacks[32m=[0m{},
+     @protocols[32m=[0m[],
+     @queue[32m=[0m[],
+     @reader[32m=[0m[32m#<WebSocket::Driver::StreamReader:0x000000018b7e18[0m @buffer[32m=[0m[31m[1;31m"[0m[31m[1;31m"[0m[31m[0m, @offset[32m=[0m[1;34m0[0m[32m>[0m,
+     @ready_state[32m=[0m[1;34m1[0m,
+     @require_masking[32m=[0m[1;36mnil[0m,
+     @socket[32m=[0m[32m#<Faye::WebSocket::Client:0x000000019a0460[0m ...[32m>[0m,
+     @stage[32m=[0m[1;34m0[0m,
+     @status[32m=[0m[1;34m101[0m[32m>[0m,
+   @event_buffers[32m=[0m{},
+   @listeners[32m=[0m
+    {[31m[1;31m"[0m[31mopen[1;31m"[0m[31m[0m=>[[32m#<Proc:0x000000018a1050@halbot.rb:14>[0m],
+     [31m[1;31m"[0m[31mmessage[1;31m"[0m[31m[0m=>[[32m#<Proc:0x000000018a0fd8@halbot.rb:19>[0m],
+     [31m[1;31m"[0m[31mclose[1;31m"[0m[31m[0m=>[[32m#<Proc:0x000000018a0f60@halbot.rb:32>[0m]},
+   @onclose[32m=[0m[1;36mnil[0m,
+   @onerror[32m=[0m[1;36mnil[0m,
+   @onmessage[32m=[0m[1;36mnil[0m,
+   @onopen[32m=[0m[1;36mnil[0m,
+   @origin_tls[32m=[0m{},
+   @ping[32m=[0m[1;36mnil[0m,
+   @ping_id[32m=[0m[1;34m0[0m,
+   @ping_timer[32m=[0m[1;36mnil[0m,
+   @proxy[32m=[0m[1;36mnil[0m,
+   @ready_state[32m=[0m[1;34m1[0m,
+   @secure[32m=[0m[1;36mtrue[0m,
+   @socket_tls[32m=[0m{},
+   @stream[32m=[0m
+    [32m#<Faye::WebSocket::Client::Connection::EM_CONNECTION_CLASS:0x000000018a1140[0m
+     @parent[32m=[0m[32m#<Faye::WebSocket::Client:0x000000019a0460[0m ...[32m>[0m,
+     @signature[32m=[0m[1;34m2[0m[32m>[0m,
+   @url[32m=[0m
+    [31m[1;31m"[0m[31mwss://mpmulti-fjjw.slack-msgs.com/websocket/m9l-l_t5ErKEQ5nG2E82ehnxErsWupBVZ8J5HYwrfemZ37NjFGXdrzYHmAnAf2Vn-Cxpp5C_fxkkDwIpHtv9DE3-X2XEik6ZZJe2shEMz8qJ1iLINx45gYT6hkKVa0VYTbPQeg8922QjMC56eafK8g==[1;31m"[0m[31m[0m[32m>[0m,
+ @type[32m=[0m[31m[1;31m"[0m[31mmessage[1;31m"[0m[31m[0m[32m>[0m
