@@ -40,6 +40,7 @@ class Halbot
     @channels = []
     channel_response = HTTP.get('https://slack.com/api/channels.list', params: { token: ENV['SLACK_BOT_TOKEN']})
     channels_data = JSON.parse(channel_response)
+    require 'pry'; binding.pry
     channels_member = channels_data['channels'].select { |c| c['is_member'] }
     channels_member.each do |channel|
       @channels << { 'id'=> channel['id'], 'name'=> channel['name'] }
@@ -57,35 +58,52 @@ class Halbot
   end
 end
 
+class EventHandler
+  def initialize(event)
+    @data = JSON.parse(event.data)
+  end
+
+  def message?
+    @data['type'] == 'message'
+  end
+
+  def first_message?
+    @data == {'type' => 'hello'}
+  end
+
+  def not_from(user_or_id)
+    id = user_or_id.class.method_defined?(:id) ? user_or_id.id : user_or_id
+    @data['user'] && data['user'] != id
+  end
+end
+
 slack_rtm_url = 'https://slack.com/api/rtm.start'
-response = HTTP.get(slack_rtm_url, params: { token: ENV['SLACK_BOT_TOKEN']})
+oauth_response = HTTP.get(slack_rtm_url, params: { token: ENV['SLACK_BOT_TOKEN'] })
 
-url = JSON.parse(response.body)['url']
-
-# bot_id = JSON.parse(HTTP.get('https://slack.com/api/users.info', params: {token: ENV['SLACK_BOT_TOKEN']}))
+access_token = JSON.parse(oauth_response.body)['url']
 
 halbot = Halbot.new('U1RJMG94Y')
-halbot.update_all_channels
-
+/shit|damn|fuck|cunt|\bass\b|asshole|whore|bastard|bitch|\bcock\b|slut|dick|pussy|fag|faggot|nigger|chink|wetback|nigga/i
 EventMachine.run do
-  socket = Faye::WebSocket::Client.new(url)
+  socket = Faye::WebSocket::Client.new(access_token)
 
   socket.on :open do |event|
+    halbot.update_all_channels
     halbot.connected = true
     p [:open]
   end
 
   socket.on :message do |event|
     p JSON.parse(event.data)
-    data = JSON.parse(event.data)
+    event = EventHandler.new(event)
 
-    if data == {'type' => 'hello'}
+    if event.first_message?
       halbot.connected = true
       halbot.greet(socket)
     end
 
 
-    if data['type'] == 'message' && data['user'] && data['user'] != halbot.id
+    if event.message? && event.not_from(halbot)
       socket.send({ type: 'message',
                     channel: data['channel'],
                     text: 'HELLO',
