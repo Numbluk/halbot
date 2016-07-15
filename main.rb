@@ -2,7 +2,6 @@ require 'http'
 require 'json'
 require 'faye/websocket'
 require 'eventmachine'
-require 'pry'
 
 require_relative './lib/halbot'
 require_relative './lib/event_handler'
@@ -18,7 +17,7 @@ halbot = Halbot.new(launch_bot_id)
 EventMachine.run do
   socket = Faye::WebSocket::Client.new(access_token)
 
-  socket.on :open do |event|
+  socket.on :open do
     halbot.update_all_channels
     halbot.connected = true
     halbot.socket = socket
@@ -41,19 +40,17 @@ EventMachine.run do
       if event.user_joined_group_or_channel?
         halbot.welcome_user(event_data)
       elsif event.command?
-      event.user_cursed? ? halbot.scold(event_data) : halbot.execute(event_data)
+        event.user_cursed? ? halbot.scold(event_data) : halbot.execute(event_data)
       elsif event.just_text? || event.text_edited?
         halbot.scold(event_data) if event.user_cursed?
       end
     end
 
     # handle bot joining a channel
-    if event.bot_joined_group_or_channel?
-      halbot.greet_on_join(event_data)
-    end
+    halbot.greet_on_join(event_data) if event.bot_joined_group_or_channel?
   end
 
-  socket.on :close do |event|
+  socket.on :close do
     halbot.connected = false
     socket = nil
     EventMachine.stop

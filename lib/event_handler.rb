@@ -19,7 +19,8 @@ class EventHandler
   end
 
   def user_message?
-    @data['type'] == 'message' && @data['user'] && @data['user'] != @bot_id || @data['subtype'] == 'message_changed'
+    @data['type'] == 'message' && @data['user'] && @data['user'] != @bot_id ||
+      @data['subtype'] == 'message_changed'
   end
 
   def first_message?
@@ -27,7 +28,7 @@ class EventHandler
   end
 
   def bot_joined_group_or_channel?
-    return false unless (@data['type'] == 'group_joined' || @data['type'] == 'channel_joined')
+    return false unless @data['type'] == 'group_joined' || @data['type'] == 'channel_joined'
     @bot_id == @data['channel']['latest']['user']
   end
 

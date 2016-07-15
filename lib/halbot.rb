@@ -14,12 +14,11 @@ class Halbot
 
   def send_message(channel, text)
     @socket.send({
-                   type: 'message',
-                   channel: channel,
-                   text: text,
-                   as_user: true
-                 }.to_json
-                )
+      type: 'message',
+      channel: channel,
+      text: text,
+      as_user: true
+    }.to_json)
   end
 
   def execute(event_data)
@@ -96,7 +95,7 @@ class Halbot
     channels_data = JSON.parse(channel_response)
     channels_member = channels_data['channels'].select { |c| c['is_member'] }
     channels_member.each do |channel|
-      @channels << { 'id'=> channel['id'], 'name'=> channel['name'] }
+      @channels << { 'id' => channel['id'], 'name' => channel['name'] }
     end
   end
 
