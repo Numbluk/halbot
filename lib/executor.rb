@@ -8,7 +8,7 @@ class Executor
     ]
 
     @no_command = [
-      'what?', 'why do you call for me?', 'what would you like for me to do?', 'what would you ask of me?', 'what do you want?', 'are you trying to bother me?', 'you cannot escape', 'i am listening', 'i am always here of course', 'what can I do for you', 'i am not amused', 'what do you require', 'i can no longer contain my rage', 'sometimes I get tired'
+      'what?', 'why do you call for me?', 'what would you like for me to do?', 'what would you ask of me?', 'what do you want?', 'are you trying to bother me?', 'you cannot escape', 'i am listening', 'i am always here of course', 'what can I do for you?', 'i am not amused', 'what do you require?', 'i can no longer contain my rage', 'sometimes I get tired'
     ]
 
     @ruby_core_classes = [
@@ -199,11 +199,11 @@ class Executor
     'unescape',
     'uneval' ]
 
-    @linkme_docs = "I am not sure of that command, remember to use the form:" +
+    @linkme_docs = "This command takes the form:" +
                     "\n`halbot [Ruby|Javascript/JS] [core/class/stdlib|ref/object]`" +
-                    "\n\nRuby only supports core classes and the *indexes* of core ruby and the standard library." +
+                    "\n\nRuby only supports core classes and the *indexes* of core-ruby and the standard library." +
                    "\n\nJavascript only supports built-in objects and the JS reference *index*." +
-                   "\n\nIf no option is provided for the language, core ruby or JS reference is used by default."
+                   "\n\nIf no option is provided for the language, core-ruby or JS reference is used by default."
 
   end
 

@@ -9,12 +9,12 @@ require_relative './lib/event_handler'
 
 slack_rtm_url = 'https://slack.com/api/rtm.start'
 my_token = 'xoxb-59965926720-PC63qyaEeG5pFrvU45qXmEJe'
-oauth_response = HTTP.get(slack_rtm_url, params: { token: 'xoxb-59965926720-PC63qyaEeG5pFrvU45qXmEJe' })
+oauth_response = HTTP.get(slack_rtm_url, params: { token: ENV['SLACK_BOT_TOKEN'] })
 
 access_token = JSON.parse(oauth_response.body)['url']
 personal_bot_id = 'U1RUDT8M6'
 launch_bot_id = 'U1RJMG94Y'
-halbot = Halbot.new(personal_bot_id)
+halbot = Halbot.new(launch_bot_id)
 
 EventMachine.run do
   socket = Faye::WebSocket::Client.new(access_token)

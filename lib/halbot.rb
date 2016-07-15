@@ -1,4 +1,4 @@
-require_relative './parser.rb'
+require_relative './executor.rb'
 
 class Halbot
   attr_reader :id, :groups
@@ -73,7 +73,7 @@ class Halbot
 
   def update_public_channels
     @channels = []
-    channel_response = HTTP.get('https://slack.com/api/channels.list', params: { token: 'xoxb-59965926720-PC63qyaEeG5pFrvU45qXmEJe' })
+    channel_response = HTTP.get('https://slack.com/api/channels.list', params: { token: ENV['SLACK_BOT_TOKEN'] })
     channels_data = JSON.parse(channel_response)
     channels_member = channels_data['channels'].select { |c| c['is_member'] }
     channels_member.each do |channel|
@@ -83,7 +83,7 @@ class Halbot
 
   def update_private_channels
     @groups = []
-    groups_response = HTTP.get('https://slack.com/api/groups.list', params: { token: 'xoxb-59965926720-PC63qyaEeG5pFrvU45qXmEJe' })
+    groups_response = HTTP.get('https://slack.com/api/groups.list', params: { token: ENV['SLACK_BOT_TOKEN'] })
     groups_data = JSON.parse(groups_response)
     groups_hash = groups_data['groups'].select { |c| c['is_group'] }
     groups_hash.each do |group|
