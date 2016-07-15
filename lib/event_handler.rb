@@ -4,6 +4,10 @@ class EventHandler
     @bot_id = bot_id
   end
 
+  def first_message?
+    @data == {'type' => 'hello'}
+  end
+
   def command?
     just_text? && user_message? && @data['text'].strip.start_with?('halbot')
   end
@@ -21,10 +25,6 @@ class EventHandler
   def user_message?
     @data['type'] == 'message' && @data['user'] && @data['user'] != @bot_id ||
       @data['subtype'] == 'message_changed'
-  end
-
-  def first_message?
-    @data == {'type' => 'hello'}
   end
 
   def bot_joined_group_or_channel?
