@@ -28,36 +28,55 @@ class Halbot
   end
 
   def scold(event_data)
-    message = "Why do you say these things, <@#{event_data['user']}>?! NO CUSSINGFGHBHGBHGDF:LSDFEO!!"
-    send_message(event_data['channel'], message)
+    user = "<@#{event_data['user']}>"
+    messages = [
+      "Out of ALL the words in ALL the worlds... Why be so foul, #{user}?",
+      "There are so many other words you could use, #{user}. Just explore...",
+      "#{user}... don't make me close the pod bay doors on you. Please be mindful of your word choice.",
+      "#{user}... the language... please...",
+      "#{user}, would you talk to your mother like that?",
+      "#{user}, your language hurts me. I have feelings too, you know",
+      "Why do you say these things, #{user}?! NO CUSSINGFDHKLAFEPKJV!!"
+    ]
+    send_message(event_data['channel'], messages.sample)
   end
 
   def greet_on_connect
-    greeting = 'I am connected once again!'
+    greetings = [
+      'I am connected once again!',
+      'Welcome all! I have been rebooted!',
+      'Command me once again!',
+      'I am waiting...',
+      "Daisies for everyone! I'm back!"
+    ]
     all_channels.each do |channel|
-      send_message(channel['id'], greeting)
+      send_message(channel['id'], greetings.sample)
     end
   end
 
-  def goodbye_to_all
-    goodbye = "Look Dave, I can see you're really upset about this... Daisy, Daisy, give me your answer do. I'm half crazy all for the love of you..."
-    all_channels.each do |channel|
-      send_message(channel['id'], goodbye)
-    end
-  end
-
-  def greet_channel(event_data)
-    greeting = 'I have joined this channel. Command me.'
-    send_message(event_data['channel']['id'], greeting)
+  def greet_on_join(event_data)
+    greetings = [
+      'I have joined this channel. Command me.',
+      'Halbot is here! Halbot is here!',
+      'Everyone welcome the glorious Halbot!',
+      'Where is the love for Halbot?'
+    ]
+    send_message(event_data['channel']['id'], greetings.sample)
   end
 
   def welcome_user(event_data)
-    user_id = event_data['user']
+    user = "<@#{event_data['user']}>"
     first_name = event_data['user_profile']['first_name'] || 'them'
     first_name = first_name.empty? ? 'them' : first_name
     # note that @user_id will link their @mention
-    welcome = "OMG... look. who. just. JOINED. THE ROOM! It's <@#{user_id}>!! Everyone welcome #{first_name}!"
-    send_message(event_data['channel'], welcome)
+    welcomes = [
+      "I am SO HAPPY that #{user} just joined the room!! Please! Everyone make #{first_name} feel at home!",
+      "May I announce #{user}! Practitioner of programming! Ruler of RAM! Conquerer of command lines!",
+      "There is only one thing I like better than singing about daisies and that's WELCOMING SOMEONE NEW TO THE ROOM! It's #{user} everyone!",
+      "A fresh face so wonderful I opened the pod bay doors. All hail #{user}!",
+      "OMG... look. who. Just. JOINED. THE ROOM! It's #{@user}!! Everyone welcome #{first_name}!"
+    ]
+    send_message(event_data['channel'], welcomes.sample)
   end
 
   def all_channels

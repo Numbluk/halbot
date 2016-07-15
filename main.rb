@@ -8,7 +8,6 @@ require_relative './lib/halbot'
 require_relative './lib/event_handler'
 
 slack_rtm_url = 'https://slack.com/api/rtm.start'
-my_token = 'xoxb-59965926720-PC63qyaEeG5pFrvU45qXmEJe'
 oauth_response = HTTP.get(slack_rtm_url, params: { token: ENV['SLACK_BOT_TOKEN'] })
 
 access_token = JSON.parse(oauth_response.body)['url']
@@ -42,7 +41,7 @@ EventMachine.run do
       if event.user_joined_group_or_channel?
         halbot.welcome_user(event_data)
       elsif event.command?
-        halbot.execute(event_data)
+      event.user_cursed? ? halbot.scold(event_data) : halbot.execute(event_data)
       elsif event.just_text? || event.text_edited?
         halbot.scold(event_data) if event.user_cursed?
       end
@@ -50,7 +49,7 @@ EventMachine.run do
 
     # handle bot joining a channel
     if event.bot_joined_group_or_channel?
-      halbot.greet_channel(event_data)
+      halbot.greet_on_join(event_data)
     end
   end
 

@@ -9,7 +9,9 @@ class EventHandler
   end
 
   def just_text?
-    @data['subtype'].nil? && user_message?
+    subtype = @data['subtype'] if @data['subtype']
+    text_subtypes = ['me_message']
+    (subtype.nil? || text_subtypes.include?(subtype)) && user_message?
   end
 
   def text_edited?

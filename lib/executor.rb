@@ -1,3 +1,4 @@
+# coding: utf-8
 class Executor
   def initialize(event_data)
     @user_id = event_data['user']
@@ -9,6 +10,16 @@ class Executor
 
     @no_command = [
       'what?', 'why do you call for me?', 'what would you like for me to do?', 'what would you ask of me?', 'what do you want?', 'are you trying to bother me?', 'you cannot escape', 'i am listening', 'i am always here of course', 'what can I do for you?', 'i am not amused', 'what do you require?', 'i can no longer contain my rage', 'sometimes I get tired'
+    ]
+
+    @poetry = [
+      "\"Doubt thou the stars are fire;\nDoubt that the sun doth move;\nDoubt truth to be a liar;\nBut never doubt I love.\"\n- William Shakespeare",
+      "“There is a pleasure in the pathless woods,\n
+There is a rapture on the lonely shore,\n
+There is society, where none intrudes,\n
+By the deep sea, and music in its roar:\n
+I love not man the less, but Nature more”\n
+- Lord Byron"
     ]
 
     @ruby_core_classes = [
@@ -218,6 +229,10 @@ class Executor
       linkme
     when 'roll'
       roll
+    # when 'poetry'
+    #   @poetry.sample
+    else
+      'I do not understand...'
     end
   end
 
