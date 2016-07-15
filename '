@@ -89,12 +89,8 @@ class EventHandler
     @data['subtype'].nil? && user_message?
   end
 
-  def text_edited?
-    @data['subtype'] == 'message_changed'
-  end
-
   def user_message?
-    @data['type'] == 'message' && @data['user'] && @data['user'] != @bot_id || @data['subtype'] == 'message_changed'
+    @data['type'] == 'message' && @data['user'] && @data['user'] != @bot_id
   end
 
   def first_message?
@@ -112,11 +108,6 @@ class EventHandler
 
   def channel
     @data['channel']['id'] if @data['channel']
-  end
-
-  def user_cursed?
-    text = @data['text'] || @data['message']['text']
-    #handle cursing
   end
 end
 # {"type"=>"group_joined", "channel"=>{"id"=>"G116MMTK6", "name"=>"test", "is_group"=>true, "created"=>1460768372, "creator"=>"U0YL7G2SG", "is_archived"=>false, "is_mpim"=>false, "is_open"=>true, "last_read"=>"1468525273.000008", "latest"=>{"type"=>"message", "user"=>"U0YKM00SU", "text"=>"<@U1RJMG94Y>: asdf", "ts"=>"1468525273.000008"}, "unread_count"=>0, "unread_count_display"=>0, "members"=>["U0YKM00SU", "U11KUJ4KB", "U1RJMG94Y"], "topic"=>{"value"=>"", "creator"=>"", "last_set"=>0}, "purpose"=>{"value"=>"just for test purposes", "creator"=>"U0YL7G2SG", "last_set"=>1460768373}}}
@@ -157,7 +148,7 @@ end
 # {
 #   'type' => 'message',
 #   'subtype' => 'message_changed',
-#   'message' => { 'text' => 'changed text', 'edited' => {'user' => 'userid} }
+#   'message' => { 'text' => 'changed text' }
 # }
 # {"type"=>"message", "message"=>{"type"=>"message", "user"=>"U11KUJ4KB", "text"=>"* edit", "edited"=>{"user"=>"U11KUJ4KB", "ts"=>"1468530537.000000"}, "ts"=>"1468529035.000176"}, "subtype"=>"message_changed", "hidden"=>true, "channel"=>"G1RJ33RST", "previous_message"=>{"type"=>"message", "user"=>"U11KUJ4KB", "text"=>"* and edit", "edited"=>{"user"=>"U11KUJ4KB", "ts"=>"1468530052.000000"}, "ts"=>"1468529035.000176"}, "event_ts"=>"1468530537.203567", "ts"=>"1468530537.000178"}
 
@@ -181,44 +172,29 @@ EventMachine.run do
     p [:open]
   end
 
-  socket.on :message do |msg|
-    p JSON.parse(msg.data)
-    event_data = JSON.parse(msg.data)
-    event = EventHandler.new(msg, halbot.id)
+  socket.on :message do |event|
+    p JSON.parse(event.data)
+    event_data = JSON.parse(event.data)
+    event = EventHandler.new(event, halbot.id)
 
     if event.first_message?
       halbot.connected = true
       halbot.greet_on_connect
     end
 
+
     # handle user messages
     if event.user_message?
-
       if event.user_joined_group_or_channel?
         halbot.welcome_user(event_data)
     #   elsif event.user_command?
     #     halbot.handle_command(event_data)
-      elsif event.just_text? || event.text_edited?
-        # # handle person sending a message of text
-        # # a message where event_data[:'subtype'].nil?
-        # {
-        #   "type" => 'message',
-        #   'channel' => 'some_channel',
-        #   'user' => 'some_user'
-        #   'text' => 'some_text'
-        # }
+      elsif event.just_text? or event.edit?
+        puts 'just text'
+        # "type"=>"message", "channel"=>"C1RU9G9NY", "user"=>"U1RUR9LHF", "text"=>"just text", "ts"=>"1468539540.000050", "team"=>"T1RSZ3Q3V"}
 
-        # # handle person editing a message of text
-        # # a message where event_data[:'subtype'] == 'message_changed'
-        # {
-        #   'type' => 'message',
-        #   'subtype' => 'message_changed',
-        #   'message' => { 'text' => 'changed text', 'edited' => {'user' => 'userid} }
-        # }
-        text = event_data['text'] || event_data['message']['text']
-        user = event_data['user']
-        puts 'WHY DID YOU CURSE' if event.user_cursed?
-        # halbot.scold(event_data['user'], text) if event.user_cursed?
+        puts event_data
+        # halbot.scold(event_data) if event.user_cursed?
       end
     end
 
