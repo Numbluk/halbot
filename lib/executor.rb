@@ -200,7 +200,7 @@ class Executor
     'uneval' ]
 
     @linkme_docs = "This command takes the form:" +
-                    "\n`halbot [Ruby|Javascript/JS] [core/class/stdlib|ref/object]`" +
+                    "\n`halbot -l|linkme [Ruby|Javascript/JS] [core/class/stdlib|ref/object]`" +
                     "\n\nRuby only supports core classes and the *indexes* of core-ruby and the standard library." +
                    "\n\nJavascript only supports built-in objects and the JS reference *index*." +
                    "\n\nIf no option is provided for the language, core-ruby or JS reference is used by default."
@@ -214,7 +214,7 @@ class Executor
       no_commands
     when 'greet'
       greet
-    when 'linkme'
+    when 'linkme', '-l'
       linkme
     when 'roll'
       roll
